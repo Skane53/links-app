@@ -12,13 +12,23 @@ function Links() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1>Links Page</h1>
-      <p>
+      <div className="container.fluid row d-flex p-3">
         {links.map((e) => {
-          return <li key={e["_id"]}>{e["courseTitle"]}</li>;
+          return (
+            <li
+              key={e["_id"]}
+              className="col-12 col-sm-6 col-lg-4 col-xl-3 rounded d-flex flex-column my-3 border p-2">
+              <a className="flex-grow-1" href={e.url}>
+                {e.url}
+              </a>
+              <div>Course Title : {e.courseTitle}</div>
+              <div> Course Number : {e.courseNumber}</div>
+            </li>
+          );
         })}
-      </p>
+      </div>
     </div>
   );
 }
