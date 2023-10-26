@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import serverUrl from "../serverUrl";
+import CourseNavBar from "./CourseNavBar";
 
 function Links() {
   const [links, setLinks] = useState([]);
 
   useEffect(() => {
-    fetch(serverUrl + "links")
+    fetch(serverUrl + "links/")
       .then((response) => response.json())
       .then((data) => setLinks(data))
       .catch((error) => console.error(error));
@@ -14,6 +15,7 @@ function Links() {
   return (
     <div className="container">
       <h1>Links Page</h1>
+      <CourseNavBar />
       <div className="container.fluid row d-flex p-3">
         {links.map((e) => {
           return (
