@@ -36,6 +36,7 @@ function App() {
             {tabs
               ? tabs.map((i) => (
                   <Route
+                    key={`links/${i}`}
                     path={`links/${i}`}
                     element={<Links endpoint={`${i}/`} />}></Route>
                 ))
