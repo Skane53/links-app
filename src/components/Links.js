@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import serverUrl from "../serverUrl";
 import CourseNavBar from "./CourseNavBar";
 
-function Links() {
+function Links({ endpoint }) {
   const [links, setLinks] = useState([]);
-
   useEffect(() => {
-    fetch(serverUrl + "links/")
+    fetch(`${serverUrl}links/${endpoint}`)
       .then((response) => response.json())
       .then((data) => setLinks(data))
       .catch((error) => console.error(error));
-  }, []);
+  }, [endpoint]);
 
   return (
     <div className="container">
